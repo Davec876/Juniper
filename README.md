@@ -6,5 +6,5 @@ ________________________________________________
 # Collaborators
  - Dave Chuck
  - Justin Rackley
- -Liam Haley
+ - Liam Haley
 
