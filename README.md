@@ -5,5 +5,6 @@ ________________________________________________
 
 # Collaborators
  - Dave Chuck
- - Daniel Kang
+ - Justin Rackley
+ -Liam Haley
 
