@@ -12,8 +12,10 @@ public class commands extends ListenerAdapter {
             EmbedBuilder info = new EmbedBuilder();
             info.setTitle("Juniper");
             info.setDescription("I'm a bot that Checks your mental health");
-            info.addField("Creators","Dave, Justin, and Liam",false);
+//            info.addField("Creators","Dave, Justin, and Liam",false);
             info.setColor(20512750);
+            //we can choose between the field or the footer whichever looks more professional.
+            info.setFooter("Created by: Dave, Justin, and Liam");
 
             //shows bot is typing
             event.getChannel().sendTyping().queue();
