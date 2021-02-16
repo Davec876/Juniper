@@ -19,9 +19,7 @@ public class commands extends ListenerAdapter {
             event.getChannel().sendTyping().queue();
             event.getChannel().sendMessage(info.build()).queue();
             info.clear();
-
         }
-
 
     }
 }
