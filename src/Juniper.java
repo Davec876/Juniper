@@ -3,17 +3,27 @@
 import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.OnlineStatus;
+import net.dv8tion.jda.api.entities.Activity;
+
 import javax.security.auth.login.LoginException;
+import java.util.EventListener;
 
 public class Juniper {
+    public static JDA jda;
+    public static String prefix = "*";
 
-    private static String discordToken = ("ODEwOTY2NDI1NzMxNzI3NDAw.YCrVVg.99-TBzS9N-3RpD4S0x9Z-3cF3Xk");
+//    private static String discordToken = ("ODEwOTY2NDI1NzMxNzI3NDAw.YCrVVg.IuxO1WFLRl3pLd1cuIfvU2b2CpA");
 
     //referencing Bot linkage token.
     public static void main(String[] args) throws LoginException{
-        JDABuilder builder = JDABuilder.createDefault(discordToken);
+        jda = JDABuilder.createDefault("ODEwOTY2NDI1NzMxNzI3NDAw.YCrVVg.IuxO1WFLRl3pLd1cuIfvU2b2CpA").build();
 
-        builder.build();
+        jda.getPresence().setStatus(OnlineStatus.ONLINE);
+        jda.getPresence().setActivity(Activity.listening("How you're feeling"));
+
+        jda.addEventListener(new commands());
+
     }
 
 }
