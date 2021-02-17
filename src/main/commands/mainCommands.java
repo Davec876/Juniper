@@ -7,54 +7,33 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.util.List;
+import java.util.Random;
 
 
-public class commands extends ListenerAdapter {
+public class mainCommands extends ListenerAdapter {
+    //We can fill this up with multiple responses and then randomize it like it's done in the Sad method.
+    String[] Sad = {
+            "It's going to be okay [member], don't worry",
+
+
+
+    };
+
+    String[] Happy = {
+            "That's great! Remember to drink water",
+
+
+    };
+
+    String[] Ok = {
+            "Hang in there",
+
+
+    };
+
 
     public void onGuildMessageReceived(GuildMessageReceivedEvent event){
         String[] args = event.getMessage().getContentRaw().split("\\s+");
-        //this will clear messages from chat
-        if(args[0].equalsIgnoreCase(Juniper.prefix + "clear")){
-            if(args.length < 3){
-                //how to delete
-                EmbedBuilder Usage = new EmbedBuilder();
-                Usage.setColor(0xff3923);
-                Usage.setTitle("Specify amount to delete");
-                Usage.setDescription("Usage: `" + Juniper.prefix + "clear [#amount of messages]`");
-                event.getChannel().sendMessage(Usage.build()).queue();
-            }
-            else{
-                try{
-                    List<Message> messages = event.getChannel().getHistory().retrievePast(Integer.parseInt(args[1])).complete();
-                    event.getChannel().deleteMessages(messages).queue();
-
-                    //delete successfully
-                    EmbedBuilder success = new EmbedBuilder();
-                    success.setColor(0x22ff2a);
-                    success.setTitle("✔️ Successfully Deleted " +  args[1] + ".");
-                    event.getChannel().sendMessage(success.build()).queue();
-
-                }
-                catch (IllegalArgumentException e){
-                    if(e.toString().startsWith("java.lang.IllegalArgumentException: Message retrieval")){
-                        //too many messages
-                        EmbedBuilder error = new EmbedBuilder();
-                        error.setColor(0xff3923);
-                        error.setTitle("There's too many messages selected");
-                        error.setDescription("Between 1-100 messages can be deleted at a time");
-                        event.getChannel().sendMessage(error.build()).queue();
-                    }
-                    else{
-                        //messages too old
-                        EmbedBuilder error = new EmbedBuilder();
-                        error.setColor(0xff3923);
-                        error.setTitle("Messages too old");
-                        error.setDescription("Messages older than 2 weeks can not be deleted");
-                        event.getChannel().sendMessage(error.build()).queue();
-                    }
-                }
-            }
-        }
 
         if(args[0].equalsIgnoreCase(Juniper.prefix + "info")){
 
@@ -77,7 +56,7 @@ public class commands extends ListenerAdapter {
             EmbedBuilder help = new EmbedBuilder();
             help.setTitle("Juniper");
             // the "`" allows it to be displayed in a code block but not necessary
-            help.setDescription("`How are you feeling?:\nStressed\nAnxious\nDepressed\n`");
+            help.setDescription("`How are you feeling?:\nSad\nAnxious\nDepressed\n`");
             help.setColor(20512750);
 
             event.getChannel().sendTyping().queue();
@@ -85,11 +64,14 @@ public class commands extends ListenerAdapter {
 
         }
 
-        if (args[0].equalsIgnoreCase(Juniper.prefix + "Stressed")){
+        if (args[0].equalsIgnoreCase(Juniper.prefix + "Sad")){
+            Random rand = new Random();
+            int number = rand.nextInt(Sad.length);
+
 
             EmbedBuilder Stressed = new EmbedBuilder();
             Stressed.setTitle("Juniper");
-            Stressed.setDescription("You are Stressed");
+            Stressed.setDescription(Sad[number].replace("[member]",event.getMember().getAsMention()));
             Stressed.setColor(20512750);
             Stressed.setFooter("You got this don't give up!");
 

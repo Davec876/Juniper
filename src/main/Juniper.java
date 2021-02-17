@@ -1,6 +1,7 @@
 package main;
 
-import main.commands.commands;
+import main.commands.clear;
+import main.commands.mainCommands;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -21,7 +22,8 @@ public class Juniper {
         jda.getPresence().setStatus(OnlineStatus.ONLINE);
         jda.getPresence().setActivity(Activity.listening("How you're feeling"));
 
-        jda.addEventListener(new commands());
+        jda.addEventListener(new mainCommands());
+        jda.addEventListener(new clear());
 
     }
 
