@@ -9,7 +9,6 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import java.util.List;
 import java.util.Random;
 
-
 public class mainCommands extends ListenerAdapter {
     //We can fill this up with multiple responses and then randomize it like it's done in the Sad method.
     String[] Sad = {
