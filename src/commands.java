@@ -25,7 +25,7 @@ public class commands extends ListenerAdapter {
 
         if (args[0].equalsIgnoreCase(Juniper.prefix + "help")){
             event.getChannel().sendTyping().queue();
-            event.getChannel().sendMessage("Are you:\nStressed\nAnxious\nDepressed").queue();
+            event.getChannel().sendMessage("Are you feeling:\nStressed\nAnxious\nDepressed").queue();
 
         }
 
