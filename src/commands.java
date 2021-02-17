@@ -23,5 +23,26 @@ public class commands extends ListenerAdapter {
             info.clear();
         }
 
+        if (args[0].equalsIgnoreCase(Juniper.prefix + "help")){
+            event.getChannel().sendTyping().queue();
+            event.getChannel().sendMessage("Are you:\nStressed\nAnxious\nDepressed").queue();
+
+        }
+
+        if (args[0].equalsIgnoreCase(Juniper.prefix + "Stressed")){
+            event.getChannel().sendTyping().queue();
+            event.getChannel().sendMessage("You are stressed").queue();
+        }
+
+        if (args[0].equalsIgnoreCase(Juniper.prefix + "Anxious")){
+            event.getChannel().sendTyping().queue();
+            event.getChannel().sendMessage("You are Anxious").queue();
+        }
+
+        if (args[0].equalsIgnoreCase(Juniper.prefix + "Depressed")){
+            event.getChannel().sendTyping().queue();
+            event.getChannel().sendMessage("You are feeling Depressed").queue();
+        }
+
     }
 }
