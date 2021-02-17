@@ -1,4 +1,4 @@
-# Juniper
+# main.Juniper
 
 A bot that checks your mental health
 ________________________________________________
