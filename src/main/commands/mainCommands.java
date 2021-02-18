@@ -7,7 +7,6 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.entities.User;
 
-import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
 
@@ -111,19 +110,12 @@ public class mainCommands extends ListenerAdapter {
 
         if (args[0].equalsIgnoreCase(Juniper.prefix + "getHelp")){
             User user = event.getAuthor();
-//            String message = "Consider reaching out to the student health and wellness center.\n" +
-//                    "They can be reached online here: https://www.dal.ca/campus_life/health-and-wellness/services-support/student-health-and-wellness/make-an-appointment.html\n" +
-//                    "They can be rached by phone at (902)497-2171";
-            EmbedBuilder getHelp = new EmbedBuilder();
-            getHelp.setTitle("Get help at the student health and wellness center");
-            getHelp.setThumbnail("https://www.dal.ca/campus_life/health-and-wellness/services-support/student-health-and-wellness/make-an-appointment/book-your-appointment-online.html");
-            getHelp.setDescription("They can be reached at the link ______ or at (902)497-2171");
+            String message = "Consider reaching out to the student health and wellness center.\n" +
+                    "They can be reached online here: https://www.dal.ca/campus_life/health-and-wellness/services-support/student-health-and-wellness/make-an-appointment.html\n" +
+                    "They can be rached by phone at (902)497-2171";
 
-            user.openPrivateChannel().queue(channel ->{
-                channel.sendMessage((CharSequence) getHelp).queue();
-            });
 
-            //sendUserMessage(user,getHelp);
+            sendUserMessage(user,message);
             event.getChannel().sendTyping().queue();
             event.getChannel().sendMessage("I've sent you a private message.").queue();
         }
@@ -131,10 +123,10 @@ public class mainCommands extends ListenerAdapter {
 
     }
 
-//    public void sendUserMessage(User user, EmbedBuilder content){
-//        user.openPrivateChannel().queue(channel -> {
-//            channel.sendMessage(content).queue();
-//        });
-//    }
+    public void sendUserMessage(User user, String content){
+        user.openPrivateChannel().queue(channel -> {
+            channel.sendMessage(content).queue();
+        });
+    }
 
 }
