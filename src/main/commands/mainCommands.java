@@ -12,15 +12,16 @@ import java.util.Random;
 public class mainCommands extends ListenerAdapter {
     //We can fill this up with multiple responses and then randomize it like it's done in the Sad method.
     String[] Sad = {
-            "It's going to be okay [member], don't worry",
-
-
-
+            "It's going to be okay [member], just breathe.",
+            "[member], I suggest taking your mind off things with watching something funny on YouTube.",
+            "[member], I suggest taking a walk to talk your mind off things.",
+            "There's always someone to talk to [member], please take care of yourself.",
+            "[member], I hope you know we're here if you need someone to talk to."
     };
 
     String[] Happy = {
-            "That's great! Remember to drink water",
-
+            "That's great [member]! Remember to take some breaks throughout the day.",
+            "[member], spread your positivity with all of us 😆"
 
     };
 
@@ -54,8 +55,7 @@ public class mainCommands extends ListenerAdapter {
 
             EmbedBuilder help = new EmbedBuilder();
             help.setTitle("Juniper");
-            // the "`" allows it to be displayed in a code block but not necessary
-            help.setDescription("`How are you feeling?:\nSad\nAnxious\nDepressed\n`");
+            help.setDescription("How are you feeling?:\n\n 1. Happy\n 2. Sad\n 3. Ecstatic\n 4. Ok");
             help.setColor(20512750);
 
             event.getChannel().sendTyping().queue();
@@ -67,26 +67,28 @@ public class mainCommands extends ListenerAdapter {
             Random rand = new Random();
             int number = rand.nextInt(Sad.length);
 
-
             EmbedBuilder Stressed = new EmbedBuilder();
             Stressed.setTitle("Juniper");
             Stressed.setDescription(Sad[number].replace("[member]",event.getMember().getAsMention()));
             Stressed.setColor(20512750);
-            Stressed.setFooter("You got this don't give up!");
+            Stressed.setFooter("Please remember to drink water.");
 
             event.getChannel().sendTyping().queue();
             event.getChannel().sendMessage(Stressed.build()).queue();
         }
 
-        if (args[0].equalsIgnoreCase(Juniper.prefix + "Anxious")){
-            EmbedBuilder Anxious = new EmbedBuilder();
-            Anxious.setTitle("Juniper");
-            Anxious.setDescription("You are Anxious");
-            Anxious.setColor(20512750);
-            Anxious.setFooter("You got this don't give up!");
+        if (args[0].equalsIgnoreCase(Juniper.prefix + "Happy")){
+            Random rand = new Random();
+            int number = rand.nextInt(Happy.length);
+
+            EmbedBuilder Hap = new EmbedBuilder();
+            Hap.setTitle("Juniper");
+            Hap.setDescription(Happy[number].replace("[member]", event.getMember().getAsMention()));
+            Hap.setColor(20512750);
+            Hap.setFooter("Please remember to drink water.");
 
             event.getChannel().sendTyping().queue();
-            event.getChannel().sendMessage(Anxious.build()).queue();
+            event.getChannel().sendMessage(Hap.build()).queue();
         }
 
         if (args[0].equalsIgnoreCase(Juniper.prefix + "Depressed")){
