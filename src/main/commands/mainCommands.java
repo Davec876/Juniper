@@ -5,6 +5,7 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.entities.User;
 
 import java.util.List;
 import java.util.Random;
@@ -27,6 +28,10 @@ public class mainCommands extends ListenerAdapter {
 
     String[] Ok = {
             "Hang in there",
+            "Make sure to take some time to yourself",
+            "Consider taking a break and going for a walk",
+            "keep going, you got this",
+            "keep going [member], remember to drink some water"
 
 
     };
@@ -103,5 +108,19 @@ public class mainCommands extends ListenerAdapter {
             event.getChannel().sendMessage(Depressed.build()).queue();
         }
 
+        if (args[0].equalsIgnoreCase(Juniper.prefix + "getHelp")){
+            User user = event.getAuthor();
+            String message = "Consider reaching out to the student health and wellness center.\n" +
+                    "They can be reached online here: https://www.dal.ca/campus_life/health-and-wellness/services-support/student-health-and-wellness/make-an-appointment.html\n" +
+                    "They can be rached by phone at (902)497-2171";
+        }
+
     }
+
+    public void sendUserMessage(User user, String content){
+        user.openPrivateChannel().queue(channel -> {
+            channel.sendMessage(content).queue();
+        });
+    }
+
 }
