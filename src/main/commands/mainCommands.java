@@ -113,16 +113,22 @@ public class mainCommands extends ListenerAdapter {
 
             EmbedBuilder gethelp = new EmbedBuilder();
             gethelp.setTitle("Juniper");
-            gethelp.setDescription("Where to get help:\nThe student health and wellness center can be reached online at: https://www.dal.ca/campus_life/health-and-wellness/services-support/student-health-and-wellness/make-an-appointment.html\n" +
+            gethelp.setDescription("Where to get help:\nThe student health and wellness center can be reached online at: https://bit.ly/3drjon6\n" +
                     "or by phone at (902)497-2171");
             gethelp.setFooter("Hang in there, you can get through this");
+            gethelp.setColor(20512750);
 
             user.openPrivateChannel().queue(channel ->{
                 channel.sendMessage(gethelp.build()).queue();
             });
 
+            EmbedBuilder gethelpchat = new EmbedBuilder();
+            gethelpchat.setTitle("Juniper");
+            gethelpchat.setDescription(event.getMember().getAsMention() + " I've sent you a private message.");
+            gethelpchat.setColor(20512750);
+
             event.getChannel().sendTyping().queue();
-            event.getChannel().sendMessage("I've sent you a private message.").queue();
+            event.getChannel().sendMessage(gethelpchat.build()).queue();
         }
     }
 
