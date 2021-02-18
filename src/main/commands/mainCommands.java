@@ -110,7 +110,7 @@ public class mainCommands extends ListenerAdapter {
 
         if (args[0].equalsIgnoreCase(Juniper.prefix + "getHelp")){
             User user = event.getAuthor();
-            String message = "Consider reaching out to the student health and wellness center.\n" +
+            String message = "**Consider reaching out to the student health and wellness center.**\n" +
                     "They can be reached online here: https://www.dal.ca/campus_life/health-and-wellness/services-support/student-health-and-wellness/make-an-appointment.html\n" +
                     "They can be rached by phone at (902)497-2171";
 
@@ -119,8 +119,6 @@ public class mainCommands extends ListenerAdapter {
             event.getChannel().sendTyping().queue();
             event.getChannel().sendMessage("I've sent you a private message.").queue();
         }
-
-
     }
 
     public void sendUserMessage(User user, String content){
