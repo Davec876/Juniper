@@ -113,7 +113,11 @@ public class mainCommands extends ListenerAdapter {
             String message = "Consider reaching out to the student health and wellness center.\n" +
                     "They can be reached online here: https://www.dal.ca/campus_life/health-and-wellness/services-support/student-health-and-wellness/make-an-appointment.html\n" +
                     "They can be rached by phone at (902)497-2171";
+            sendUserMessage(user,message);
+            event.getChannel().sendTyping().queue();
+            event.getChannel().sendMessage("I've sent you a private message.").queue();
         }
+
 
     }
 
