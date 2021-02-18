@@ -110,12 +110,21 @@ public class mainCommands extends ListenerAdapter {
 
         if (args[0].equalsIgnoreCase(Juniper.prefix + "getHelp")){
             User user = event.getAuthor();
-            String message = "__**Consider reaching out to the student health and wellness center.**__\n" +
-                    "They can be reached online here: https://www.dal.ca/campus_life/health-and-wellness/services-support/student-health-and-wellness/make-an-appointment.html\n" +
-                    "They can be rached by phone at (902)497-2171";
+//            String message = "__**Consider reaching out to the student health and wellness center.**__\n" +
+//                    "They can be reached online here: https://www.dal.ca/campus_life/health-and-wellness/services-support/student-health-and-wellness/make-an-appointment.html\n" +
+//                    "They can be rached by phone at (902)497-2171";
+            EmbedBuilder gethelp = new EmbedBuilder();
+            gethelp.setTitle("Where to Get Help");
+            gethelp.setDescription("The student health adn wellness center can be reached online at: https://www.dal.ca/campus_life/health-and-wellness/services-support/student-health-and-wellness/make-an-appointment.html\n" +
+                    "or by phone at (902)497-2171");
+            gethelp.setFooter("Hang in there, you can get through this");
+
+            user.openPrivateChannel().queue(channel ->{
+                channel.sendMessage(gethelp.build()).queue();
+            });
 
 
-            sendUserMessage(user,message);
+            //sendUserMessage(user,message);
             event.getChannel().sendTyping().queue();
             event.getChannel().sendMessage("I've sent you a private message.").queue();
         }
