@@ -1,11 +1,13 @@
 package main;
 
+import main.commands.GuildMemberJoin;
 import main.commands.clear;
 import main.commands.mainCommands;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.entities.Guild;
 
 import javax.security.auth.login.LoginException;
 
@@ -24,6 +26,7 @@ public class Juniper {
 
         jda.addEventListener(new mainCommands());
         jda.addEventListener(new clear());
+        jda.addEventListener(new GuildMemberJoin());
 
     }
 
