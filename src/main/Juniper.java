@@ -1,11 +1,14 @@
 package main;
 
+import main.commands.GuildMemberJoin;
 import main.commands.clear;
 import main.commands.mainCommands;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.requests.GatewayIntent;
 
 import javax.security.auth.login.LoginException;
 
@@ -17,13 +20,14 @@ public class Juniper {
 
     //referencing Bot linkage token.
     public static void main(String[] args) throws LoginException{
-        jda = JDABuilder.createDefault("ODEwOTY2NDI1NzMxNzI3NDAw.YCrVVg.IuxO1WFLRl3pLd1cuIfvU2b2CpA").build();
+        jda = JDABuilder.createDefault("ODEwOTY2NDI1NzMxNzI3NDAw.YCrVVg.IuxO1WFLRl3pLd1cuIfvU2b2CpA").enableIntents(GatewayIntent.GUILD_MEMBERS).build();
 
         jda.getPresence().setStatus(OnlineStatus.ONLINE);
         jda.getPresence().setActivity(Activity.listening("How you're feeling"));
 
         jda.addEventListener(new mainCommands());
         jda.addEventListener(new clear());
+        jda.addEventListener(new GuildMemberJoin());
 
     }
 
