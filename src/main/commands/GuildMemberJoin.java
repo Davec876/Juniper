@@ -7,20 +7,22 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class GuildMemberJoin extends ListenerAdapter {
 
-    public void onGuildMemberJoin(GuildMemberJoinEvent event) {
+    public void onGuildMemberJoin(GuildMemberJoinEvent event){
         User user = event.getUser();
 
-        EmbedBuilder onJoin = new EmbedBuilder();
-        onJoin.setTitle("Hi, I'm Jupiter");
-        onJoin.setColor(20512750);
-        onJoin.setDescription("I'm the mental health bot from the CS Dal server. Check out my commands in the ________ channel");
-        onJoin.setFooter("I'm here if you need me\nCreated by Dave, Justin and Liam");
+        EmbedBuilder join = new EmbedBuilder();
+        join.setTitle("Welcome to the CS Dal Server");
+        join.setDescription("I'm Jupiter, the server's mental health bot");
+        join.setFooter("Made by Dave, Justin and Liam");
 
-        user.openPrivateChannel().queue(channel ->{
-            channel.sendMessage(onJoin.build());
+        user.openPrivateChannel().queue(channel -> {
+            channel.sendMessage("Welcome to the server").queue();
         });
+
+
+
 
     }
 
-
 }
+
