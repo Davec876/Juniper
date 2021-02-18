@@ -112,15 +112,15 @@ public class mainCommands extends ListenerAdapter {
             User user = event.getAuthor();
 
             EmbedBuilder gethelp = new EmbedBuilder();
-            gethelp.setTitle("Where to Get Help");
-            gethelp.setDescription("The student health adn wellness center can be reached online at: https://www.dal.ca/campus_life/health-and-wellness/services-support/student-health-and-wellness/make-an-appointment.html\n" +
+            gethelp.setTitle("Juniper");
+            gethelp.setDescription("Where to get help:\nThe student health and wellness center can be reached online at: https://www.dal.ca/campus_life/health-and-wellness/services-support/student-health-and-wellness/make-an-appointment.html\n" +
                     "or by phone at (902)497-2171");
             gethelp.setFooter("Hang in there, you can get through this");
 
             user.openPrivateChannel().queue(channel ->{
                 channel.sendMessage(gethelp.build()).queue();
             });
-            
+
             event.getChannel().sendTyping().queue();
             event.getChannel().sendMessage("I've sent you a private message.").queue();
         }
