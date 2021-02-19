@@ -15,8 +15,9 @@ public class mainCommands extends ListenerAdapter {
 
     String[] Happy = {
             "That's great [member]! Remember to take some breaks throughout the day.",
-            "[member], spread your positivity with all of us 😆"
-
+            "[member], spread your positivity with all of us 😆",
+            "That's great [member], now make the best of today 💯!",
+            "[member], I think you should treat yourself to something nice today :)"
     };
 
     String[] Sad = {
@@ -28,21 +29,29 @@ public class mainCommands extends ListenerAdapter {
     };
 
     String[] Angry = {
-
-
+            "Remember [member], it's never good to hold a grudge. The past is the past.",
+            "Hey [member], don't stress yourself over it better to ignore than to entertain.",
+            "[member], Have you tried letting your anger out in a external way such as: screaming?",
+            "[member], Would you like to talk about it?"
 
     };
 
     String[] Scared = {
-            "Hang in there",
-            "Make sure to take some time to yourself",
-            "Consider taking a break and going for a walk",
-            "keep going, you got this",
-            "keep going [member], remember to drink some water"
+            "Hang in there [member], try listening to some music.",
+            "Hey [member], Make sure to take some time to yourself.",
+            "[member], Consider taking a break and going for a walk.",
+            "keep going [member], You got this don't let sadness bring you down!",
+            "keep going [member], Remember to drink some water."
 
     };
 
-
+    String[] Nervous = {
+        "[member], Listen to me, breathe and count to ten.",
+        "[member], Take your time and think it through slowly.",
+        "[member], Visualize yourself being calm in your happy place.",
+        "Don't be afraid of the feeling [member], embrace it and make it your bitch!",
+        "Try shifting your focus [member], because it'll consume you if you don't. "
+    };
 
 
     public void onGuildMessageReceived(GuildMessageReceivedEvent event){
@@ -68,7 +77,7 @@ public class mainCommands extends ListenerAdapter {
 
             EmbedBuilder help = new EmbedBuilder();
             help.setTitle("Juniper");
-            help.setDescription("How are you feeling today?:\n\n 1. Happy\n 2. Sad\n 3. Angry\n 4. Scared\n 5. Nervous");
+            help.setDescription("How are you feeling today?:\n\n 1. Happy\n 2. Sad\n 3. Angry\n 4. Scared\n 5. Nervous/Anxious");
             help.setColor(20512750);
 
             event.getChannel().sendTyping().queue();
@@ -111,6 +120,21 @@ public class mainCommands extends ListenerAdapter {
             event.getChannel().sendMessage(Hap.build()).queue();
         }
 
+        if(args[0].equalsIgnoreCase(Juniper.prefix + "Angry")){
+
+            Random rand = new Random();
+            int number = rand.nextInt(Angry.length);
+
+            EmbedBuilder Upset = new EmbedBuilder();
+            Upset.setTitle("Juniper");
+            Upset.setDescription(Angry[number].replace("[member]", event.getMember().getAsMention()));
+            Upset.setColor(20512750);
+            Upset.setFooter("Take a chill pill for the day my guy");
+
+            event.getChannel().sendTyping().queue();
+            event.getChannel().sendMessage(Upset.build()).queue();
+        }
+
         if (args[0].equalsIgnoreCase(Juniper.prefix + "Scared")){
 
             Random rand = new Random();
@@ -126,13 +150,31 @@ public class mainCommands extends ListenerAdapter {
             event.getChannel().sendMessage(Depressed.build()).queue();
         }
 
+        if(args[0].equalsIgnoreCase(Juniper.prefix + "Nervous")){
+            Random rand = new Random();
+            int number = rand.nextInt(Nervous.length);
+
+            EmbedBuilder Worried = new EmbedBuilder();
+            Worried.setTitle("Juniper");
+            Worried.setDescription(Nervous[number].replace("[member]", event.getMember().getAsMention()));
+            Worried.setColor(20512750);
+            Worried.setFooter("You got this don't give up!");
+
+            event.getChannel().sendTyping().queue();
+            event.getChannel().sendMessage(Worried.build()).queue();
+        }
+
+
+
         if (args[0].equalsIgnoreCase(Juniper.prefix + "realHelp")){
             User user = event.getAuthor();
 
             EmbedBuilder gethelp = new EmbedBuilder();
             gethelp.setTitle("Juniper");
-            gethelp.setDescription("Where to get help:\n\nThe student health and wellness center can be reached online at: https://bit.ly/3drjon6\n\n" +
-                    "or by phone at (902)497-2171\n");
+            gethelp.setDescription("__**As a student of Dalhousie here is where you can get help:**__" +
+                    "\n\n**The student health and wellness center can be reached online at: https://bit.ly/3drjon6**\n\n" +
+                    "**or by phone at (902)497-2171**\n" + "**\nIf that doesn't help please seek external sources such as friends/family/therapist"
+                    + " Juniper cares about you don't give up!**");
             gethelp.setFooter("\nHang in there, you can get through this");
             gethelp.setColor(20512750);
             //function to pm the user
