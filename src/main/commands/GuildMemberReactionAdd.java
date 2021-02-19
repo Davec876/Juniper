@@ -15,7 +15,7 @@ public class GuildMemberReactionAdd extends ListenerAdapter {
         if(event.getReactionEmote().getName().equals("1️⃣") &&
            !event.getMember().getUser().equals(event.getJDA().getSelfUser())){
 
-
+//            event.getMessageId()
 
 
         }
