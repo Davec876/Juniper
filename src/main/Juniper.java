@@ -16,11 +16,11 @@ public class Juniper {
     public static JDA jda;
     public static String prefix = "*";
 
-//    private static String discordToken = ("ODEwOTY2NDI1NzMxNzI3NDAw.YCrVVg.IuxO1WFLRl3pLd1cuIfvU2b2CpA");
+    private static String discordToken = ("ODEwOTY2NDI1NzMxNzI3NDAw.YCrVVg.IuxO1WFLRl3pLd1cuIfvU2b2CpA");
 
     //referencing Bot linkage token.
     public static void main(String[] args) throws LoginException{
-        jda = JDABuilder.createDefault("ODEwOTY2NDI1NzMxNzI3NDAw.YCrVVg.IuxO1WFLRl3pLd1cuIfvU2b2CpA").enableIntents(GatewayIntent.GUILD_MEMBERS).build();
+        jda = JDABuilder.createDefault(discordToken).enableIntents(GatewayIntent.GUILD_MEMBERS).build();
 
         jda.getPresence().setStatus(OnlineStatus.ONLINE);
         jda.getPresence().setActivity(Activity.listening("How you're feeling"));
