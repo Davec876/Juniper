@@ -12,6 +12,13 @@ import java.util.Random;
 
 public class mainCommands extends ListenerAdapter {
     //We can fill this up with multiple responses and then randomize it like it's done in the Sad method.
+
+    String[] Happy = {
+            "That's great [member]! Remember to take some breaks throughout the day.",
+            "[member], spread your positivity with all of us 😆"
+
+    };
+
     String[] Sad = {
             "It's going to be okay [member], just breathe.",
             "[member], I suggest taking your mind off things with watching something funny on YouTube.",
@@ -20,21 +27,22 @@ public class mainCommands extends ListenerAdapter {
             "[member], I hope you know we're here if you need someone to talk to."
     };
 
-    String[] Happy = {
-            "That's great [member]! Remember to take some breaks throughout the day.",
-            "[member], spread your positivity with all of us 😆"
+    String[] Angry = {
+
+
 
     };
 
-    String[] Ok = {
+    String[] Scared = {
             "Hang in there",
             "Make sure to take some time to yourself",
             "Consider taking a break and going for a walk",
             "keep going, you got this",
             "keep going [member], remember to drink some water"
 
-
     };
+
+
 
 
     public void onGuildMessageReceived(GuildMessageReceivedEvent event){
@@ -56,19 +64,26 @@ public class mainCommands extends ListenerAdapter {
             info.clear();
         }
 
-        else if (args[0].equalsIgnoreCase(Juniper.prefix + "help")){
+        if (args[0].equalsIgnoreCase(Juniper.prefix + "help")){
 
             EmbedBuilder help = new EmbedBuilder();
             help.setTitle("Juniper");
-            help.setDescription("How are you feeling?:\n\n 1. Happy\n 2. Sad\n 3. Ecstatic\n 4. Ok");
+            help.setDescription("How are you feeling today?:\n\n 1. Happy\n 2. Sad\n 3. Angry\n 4. Scared\n 5. Nervous");
             help.setColor(20512750);
 
             event.getChannel().sendTyping().queue();
-            event.getChannel().sendMessage(help.build()).queue();
+            Message msg = event.getChannel().sendMessage(help.build()).complete();
+            //adds  reactions to the embed builder
+            msg.addReaction("1️⃣").queue();
+            msg.addReaction("2️⃣").queue();
+            msg.addReaction("3️⃣").queue();
+            msg.addReaction("4️⃣").queue();
+            msg.addReaction("5️⃣").queue();
 
         }
 
-        else if (args[0].equalsIgnoreCase(Juniper.prefix + "Sad")){
+        if (args[0].equalsIgnoreCase(Juniper.prefix + "Sad")){
+
             Random rand = new Random();
             int number = rand.nextInt(Sad.length);
 
@@ -82,7 +97,7 @@ public class mainCommands extends ListenerAdapter {
             event.getChannel().sendMessage(Stressed.build()).queue();
         }
 
-        else if (args[0].equalsIgnoreCase(Juniper.prefix + "Happy")){
+        if (args[0].equalsIgnoreCase(Juniper.prefix + "Happy")){
             Random rand = new Random();
             int number = rand.nextInt(Happy.length);
 
@@ -90,17 +105,20 @@ public class mainCommands extends ListenerAdapter {
             Hap.setTitle("Juniper");
             Hap.setDescription(Happy[number].replace("[member]", event.getMember().getAsMention()));
             Hap.setColor(20512750);
-            Hap.setFooter("Please remember to drink water.");
+            Hap.setFooter("Please remember to take care of yourself.");
 
             event.getChannel().sendTyping().queue();
             event.getChannel().sendMessage(Hap.build()).queue();
         }
 
-        else if (args[0].equalsIgnoreCase(Juniper.prefix + "Depressed")){
+        if (args[0].equalsIgnoreCase(Juniper.prefix + "Scared")){
+
+            Random rand = new Random();
+            int number = rand.nextInt(Scared.length);
 
             EmbedBuilder Depressed = new EmbedBuilder();
             Depressed.setTitle("Juniper");
-            Depressed.setDescription("You are Depressed");
+            Depressed.setDescription(Scared[number].replace("[member]", event.getMember().getAsMention()));
             Depressed.setColor(20512750);
             Depressed.setFooter("You got this don't give up!");
 
@@ -108,7 +126,7 @@ public class mainCommands extends ListenerAdapter {
             event.getChannel().sendMessage(Depressed.build()).queue();
         }
 
-        else if (args[0].equalsIgnoreCase(Juniper.prefix + "getHelp")){
+        if (args[0].equalsIgnoreCase(Juniper.prefix + "realHelp")){
             User user = event.getAuthor();
 
             EmbedBuilder gethelp = new EmbedBuilder();
