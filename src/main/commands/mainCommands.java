@@ -56,7 +56,7 @@ public class mainCommands extends ListenerAdapter {
             info.clear();
         }
 
-        if (args[0].equalsIgnoreCase(Juniper.prefix + "help")){
+        else if (args[0].equalsIgnoreCase(Juniper.prefix + "help")){
 
             EmbedBuilder help = new EmbedBuilder();
             help.setTitle("Juniper");
@@ -68,7 +68,7 @@ public class mainCommands extends ListenerAdapter {
 
         }
 
-        if (args[0].equalsIgnoreCase(Juniper.prefix + "Sad")){
+        else if (args[0].equalsIgnoreCase(Juniper.prefix + "Sad")){
             Random rand = new Random();
             int number = rand.nextInt(Sad.length);
 
@@ -82,7 +82,7 @@ public class mainCommands extends ListenerAdapter {
             event.getChannel().sendMessage(Stressed.build()).queue();
         }
 
-        if (args[0].equalsIgnoreCase(Juniper.prefix + "Happy")){
+        else if (args[0].equalsIgnoreCase(Juniper.prefix + "Happy")){
             Random rand = new Random();
             int number = rand.nextInt(Happy.length);
 
@@ -96,7 +96,7 @@ public class mainCommands extends ListenerAdapter {
             event.getChannel().sendMessage(Hap.build()).queue();
         }
 
-        if (args[0].equalsIgnoreCase(Juniper.prefix + "Depressed")){
+        else if (args[0].equalsIgnoreCase(Juniper.prefix + "Depressed")){
 
             EmbedBuilder Depressed = new EmbedBuilder();
             Depressed.setTitle("Juniper");
@@ -108,16 +108,16 @@ public class mainCommands extends ListenerAdapter {
             event.getChannel().sendMessage(Depressed.build()).queue();
         }
 
-        if (args[0].equalsIgnoreCase(Juniper.prefix + "getHelp")){
+        else if (args[0].equalsIgnoreCase(Juniper.prefix + "getHelp")){
             User user = event.getAuthor();
 
             EmbedBuilder gethelp = new EmbedBuilder();
             gethelp.setTitle("Juniper");
-            gethelp.setDescription("Where to get help:\nThe student health and wellness center can be reached online at: https://bit.ly/3drjon6\n" +
-                    "or by phone at (902)497-2171");
-            gethelp.setFooter("Hang in there, you can get through this");
+            gethelp.setDescription("Where to get help:\n\nThe student health and wellness center can be reached online at: https://bit.ly/3drjon6\n\n" +
+                    "or by phone at (902)497-2171\n");
+            gethelp.setFooter("\nHang in there, you can get through this");
             gethelp.setColor(20512750);
-
+            //function to pm the user
             user.openPrivateChannel().queue(channel ->{
                 channel.sendMessage(gethelp.build()).queue();
             });
