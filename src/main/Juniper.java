@@ -3,7 +3,7 @@ package main;
 import main.commands.GuildMemberJoin;
 import main.commands.GuildMemberReactionAdd;
 import main.commands.clear;
-import main.commands.mainCommands;
+import main.commands.MainCommands;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -25,7 +25,7 @@ public class Juniper {
         jda.getPresence().setStatus(OnlineStatus.ONLINE);
         jda.getPresence().setActivity(Activity.listening("How you're feeling"));
 
-        jda.addEventListener(new mainCommands());
+        jda.addEventListener(new MainCommands());
         jda.addEventListener(new clear());
         jda.addEventListener(new GuildMemberJoin());
         jda.addEventListener(new GuildMemberReactionAdd());
