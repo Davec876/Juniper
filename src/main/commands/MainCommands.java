@@ -77,7 +77,7 @@ public class MainCommands extends ListenerAdapter {
 
             EmbedBuilder help = new EmbedBuilder();
             help.setTitle("Juniper");
-            help.setDescription("How are you feeling today?:\n\n 1. Happy\n 2. Sad\n 3. Angry\n 4. Scared\n 5. Nervous/Anxious");
+            help.setDescription("How are you feeling today?:\n\n 1. Happy\n 2. Sad\n 3. Angry\n 4. Scared\n 5. Nervous/Anxious ");
             help.setColor(20512750);
 
             event.getChannel().sendTyping().queue();
@@ -166,14 +166,14 @@ public class MainCommands extends ListenerAdapter {
 
 
 
-        if (args[0].equalsIgnoreCase(Juniper.prefix + "realHelp")){
+        if (args[0].equalsIgnoreCase(Juniper.prefix + "struggling")){
             User user = event.getAuthor();
 
             EmbedBuilder gethelp = new EmbedBuilder();
             gethelp.setTitle("Juniper");
             gethelp.setDescription("__**As a student of Dalhousie here is where you can get help:**__" +
                     "\n\n**The student health and wellness center can be reached online at: https://bit.ly/3drjon6**\n\n" +
-                    "**or by phone at (902)497-2171**\n" + "**\nIf that doesn't help please seek external sources such as friends/family/therapist"
+                    "**or by phone at (902) 497-2171**\n" + "**\nIf that doesn't help please seek external sources such as friends/family/therapist"
                     + " Juniper cares about you don't give up!**");
             gethelp.setFooter("\nHang in there, you can get through this");
             gethelp.setColor(20512750);
