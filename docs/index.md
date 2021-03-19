@@ -1,37 +1,25 @@
-## Welcome to GitHub Pages
+# What is Juniper?
 
-You can use the [editor on GitHub](https://github.com/Davec876/Juniper/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+Juniper is a Discord mental health bot that checks on your mental health for being a student at Dalhousie Unviersity at least once a day. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Inspiration
 
-### Markdown
+The idea for Juniper came about one day when we noticed that mental health is very important especially in today's society where mental health is very important and everything being online for the most part such as work and school. It takes a toll one everyone because no one really has an 'escape' these days due to the on-going pandemic and the adjustment to transitioning from in person work and social life to online. 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Features
 
-```markdown
-Syntax highlighted code block
+**General:** '*help' allows the user to see a general poll of how they're currently feeling.
 
-# Header 1
-## Header 2
-### Header 3
+**Message Screening:** Scans the respective channels for commands that Juniper can detect and responds with a choice of responses from a list.
 
-- Bulleted
-- List
+**Encouragement:** Gives meaningful advice on how to improve their current work flow.
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
+## What's next?
 
-[Link](url) and ![Image](src)
+Juniper is an on-going project for the 'CS Dal' Discord server and worked on whenever we have time. We want to add more functionality over time such as new commands and allow for individuals to know that their mental health matters as much as their physical health. Ultimately, we want to make Juniper as good as she can be with all appropriate functionalities in due time.
+
+### Built with
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Davec876/Juniper/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Discord-api, Java, and the JDABuilder framework
+```
