@@ -16,7 +16,7 @@ public class Juniper {
     public static JDA jda;
     public static String prefix = "*";
 
-    private static String discordToken = ("ODEwOTY2NDI1NzMxNzI3NDAw.YCrVVg.IuxO1WFLRl3pLd1cuIfvU2b2CpA");
+    private static String discordToken = ("*insert apikey here*");
 
     //referencing Bot linkage token.
     public static void main(String[] args) throws LoginException{
